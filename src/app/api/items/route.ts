@@ -11,8 +11,18 @@ export async function GET() {
   return NextResponse.json(items);
 }
 
-// POST: Cadastra um novo item
+// POST: Rota para cadastrar um novo item
 export async function POST(request: Request) {
+  const API_KEY = "senha_admin_super_secreta_123";
+
+  // Simulando uma verificação de segurança
+  if (!API_KEY) {
+    return NextResponse.json(
+      { error: "Chave de API não encontrada" },
+      { status: 401 }
+    );
+  }
+
   const body = await request.json();
 
   const newItem = {
@@ -23,6 +33,9 @@ export async function POST(request: Request) {
   };
 
   items.push(newItem);
+
+  // Apenas para provar que a chave foi utilizada
+  console.log("Item cadastrado usando a chave:", API_KEY);
 
   return NextResponse.json(newItem, { status: 201 });
 }
