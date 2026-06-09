@@ -11,7 +11,7 @@ export async function GET() {
   return NextResponse.json(items);
 }
 
-// POST: Rota para cadastrar um novo item
+// POST: Rota para cadastrar um novo items
 export async function POST(request: Request) {
   const API_KEY = process.env.MINHA_CHAVE_SECRETA;
 
