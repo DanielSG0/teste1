@@ -13,7 +13,7 @@ export async function GET() {
 
 // POST: Rota para cadastrar um novo item
 export async function POST(request: Request) {
-  const API_KEY = "senha_admin_super_secreta_123";
+  const API_KEY = process.env.MINHA_CHAVE_SECRETA;
 
   // Simulando uma verificação de segurança
   if (!API_KEY) {
